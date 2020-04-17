@@ -1,0 +1,6 @@
+[submodule "LudumDare20/third_party/raylib"]
+	path = LudumDare20/third_party/raylib
+	url = https://github.com/raysan5/raylib.git
+[submodule "LudumDare20/third_party/reactphysics3d"]
+	path = LudumDare20/third_party/reactphysics3d
+	url = https://github.com/DanielChappuis/reactphysics3d.git
