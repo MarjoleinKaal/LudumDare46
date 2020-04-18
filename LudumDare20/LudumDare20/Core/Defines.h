@@ -1,3 +1,5 @@
 #pragma once
+#include <cassert>
 
-//TODO: Put defines and preprocessor macro's here
+#define ASSERT(expression) assert(expression)
+#define ASSERT_MSG(expression, msg) assert(expression && msg);
