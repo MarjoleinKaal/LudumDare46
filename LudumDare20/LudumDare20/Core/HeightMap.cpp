@@ -12,7 +12,7 @@ HeightMap::HeightMap(const char* path, Vector3 position, Vector3 size)
 	model.materials[0].maps[MAP_DIFFUSE].texture = texture;
 	mapPosition = position;
 
-	UnloadImage(image)
+	UnloadImage(image);
 }
 
 HeightMap::~HeightMap()

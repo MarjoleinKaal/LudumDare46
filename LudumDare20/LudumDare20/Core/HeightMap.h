@@ -1,6 +1,6 @@
 #pragma once
 #include "Raylib.h"
-#include "BasicTypes.h"
+//#include "BasicTypes.h"
 
 class HeightMap
 {
