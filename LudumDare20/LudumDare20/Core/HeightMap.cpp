@@ -4,6 +4,7 @@
 HeightMap::HeightMap(const char* path, Vector3 position, Vector3 size)
 {
 	Image image = LoadImage(path);
+	if (image.data == NULL) return;
 	texture = LoadTextureFromImage(image);
 
 	Mesh mesh = GenMeshHeightmap(image, size);

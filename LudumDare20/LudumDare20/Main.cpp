@@ -3,6 +3,7 @@
 
 #include "Main.h"
 #include "raylib.h"
+#include "Core/HeightMap.h"
 
 using namespace std;
 
@@ -11,18 +12,41 @@ int main()
 	const int screenWidth = 1600;
 	const int screenHeight = 900;
 
+
 	SetConfigFlags(FLAG_MSAA_4X_HINT | FLAG_WINDOW_RESIZABLE);
 	InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
 
+	Camera camera = { { 18.0f, 18.0f, 18.0f }, { 0.0f, 0.0f, 0.0f }, { 0.0f, 1.0f, 0.0f }, 45.0f, 0 };
+
+
+
+	Vector3 mapPosition = { -8.0f, 0.0f, -8.0f };
+	Vector3 size = { 16,8,16 };
+	HeightMap* map = new HeightMap("resources/heightMap.png", mapPosition, size);
+
+	SetCameraMode(camera, CAMERA_FREE);  // Set an orbital camera mode
 	SetTargetFPS(60);
 
 	while (!WindowShouldClose())
 	{
+		UpdateCamera(&camera);
+
 		BeginDrawing();
+
 			ClearBackground(RAYWHITE);
-			DrawText("Yeeh a window", 190, 200, 60, LIGHTGRAY);
+
+			BeginMode3D(camera);
+
+				map->DrawHeightMap();
+				DrawGrid(20, 1.0f);
+	
+			EndMode3D();
+
+			DrawFPS(10, 10);
 		EndDrawing();
 	}
+
+	map->UnloadHeightMap();
 
 	CloseWindow();
 
