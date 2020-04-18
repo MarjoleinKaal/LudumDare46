@@ -3,8 +3,11 @@
 #
 cmake_minimum_required (VERSION 3.8)
 
+file( GLOB_RECURSE GLOB_SOURCES *.c *.cpp *.h)
+file( GLOB_RECURSE GLOB_HEADERS *.h)
+
 # Add source to this project's executable.
-add_executable (LudumDare20 "Main.cpp" "Main.h")
+add_executable (LudumDare20 ${GLOB_SOURCES})
 
 # TODO: Add tests and install targets if needed.
 target_link_libraries(LudumDare20 raylib)
