@@ -11,6 +11,7 @@ int main()
 	const int screenWidth = 1600;
 	const int screenHeight = 900;
 
+	SetConfigFlags(FLAG_MSAA_4X_HINT | FLAG_WINDOW_RESIZABLE);
 	InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
 
 	SetTargetFPS(60);
