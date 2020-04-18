@@ -13,8 +13,8 @@ public:
 	void DrawHeightMap();
 	void UnloadHeightMap();
 private:
-	Vector3 mapPosition;
-	Model model;
-	Texture2D texture;
+	Vector3 mapPosition = Vector3{ 0 };
+	Model model = Model();
+	Texture2D texture = Texture2D();
 };
 
