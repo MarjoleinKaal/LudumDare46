@@ -1,12 +1,8 @@
 #pragma once
-#include <cstdint>
+#include <raymath.h>
 #include <mathematics/Vector2.h>
 #include <mathematics/Vector3.h>
 #include <mathematics/Quaternion.h>
-
-using uint = uint32_t;
-using uint16 = uint16_t;
-using uint64 = uint64_t;
 
 using Vec2 = reactphysics3d::Vector2;
 using Vec3 = reactphysics3d::Vector3;
@@ -21,3 +17,12 @@ struct Vec3I
 {
 	int x, y, z;
 };
+
+inline Vec3 ConvertVector3(const Vector3& raymathVec3)
+{
+	return Vec3{ raymathVec3.x, raymathVec3.y, raymathVec3.z };
+}
+inline Vector3 ConvertVector3(const Vec3& reactphysicsVec3)
+{
+	return Vector3{ reactphysicsVec3.x, reactphysicsVec3.y, reactphysicsVec3.z };
+}

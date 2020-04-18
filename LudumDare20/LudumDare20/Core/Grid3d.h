@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include <cstdint>
 
 #include "Defines.h"
 #include "BasicTypes.h"
@@ -14,7 +15,7 @@ class Grid3d
 public:
 	Grid3d() = default;
 	//! X amount, Y amount, Z amount
-	Grid3d(uint w, uint h, uint d) : size{w, h, d}
+	Grid3d(uint32_t w, uint32_t h, uint32_t d) : size{static_cast<int>(w), static_cast<int>(h), static_cast<int>(d)}
 	{
 		cells.resize(w * h * d);
 	}

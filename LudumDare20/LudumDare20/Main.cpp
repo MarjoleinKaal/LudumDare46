@@ -4,14 +4,19 @@
 #include "Main.h"
 #include "raylib.h"
 #include "Core/HeightMap.h"
+#include "Water/WaterGrid.h"
+
+#include <filesystem>
 
 using namespace std;
 
 int main()
 {
+	std::cout << "Running from: " << std::filesystem::current_path() << "\n\n";
+
+	
 	const int screenWidth = 1600;
 	const int screenHeight = 900;
-
 
 	SetConfigFlags(FLAG_MSAA_4X_HINT | FLAG_WINDOW_RESIZABLE);
 	InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
@@ -27,6 +32,8 @@ int main()
 	SetCameraMode(camera, CAMERA_FREE);  // Set an orbital camera mode
 	SetTargetFPS(60);
 
+	Grid3d<WaterCell> waterGrid{ 8, 8, 8 };
+
 	while (!WindowShouldClose())
 	{
 		UpdateCamera(&camera);
@@ -39,6 +46,8 @@ int main()
 
 				map->DrawHeightMap();
 				DrawGrid(20, 1.0f);
+
+				DebugDrawWaterGrid(waterGrid);
 	
 			EndMode3D();
 

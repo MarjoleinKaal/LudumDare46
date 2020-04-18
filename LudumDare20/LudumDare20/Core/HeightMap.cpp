@@ -1,5 +1,5 @@
 #include "HeightMap.h"
-#include "Raylib.h"
+#include "raylib.h"
 
 HeightMap::HeightMap(const char* path, Vector3 position, Vector3 size)
 {

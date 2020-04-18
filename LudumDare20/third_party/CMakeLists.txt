@@ -6,4 +6,4 @@ cmake_minimum_required (VERSION 3.8)
 
 # Include sub-projects.
 add_subdirectory ("raylib")
-add_subdirectory ("reactphysics3d")
+add_subdirectory ("reactphysics3d_modified")
